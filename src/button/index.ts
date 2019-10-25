@@ -1,16 +1,15 @@
 import { LitElement, html } from "lit-element";
 // import { customElements } from "@webcomponents/webcomponentsjs";
 
-export class MyCard extends LitElement {
+export class MyButton extends LitElement {
   render() {
     return html`
       <link rel="stylesheet" href="./styles/styles.css" />
-      <p class="p-8 m-4 border border-gray-400 rounded text-blue-500">
-        My Card
+      <button class="text-white rounded bg-blue-500 p-2 m-2">
         <slot></slot>
-      </p>
+      </button>
     `;
   }
 }
 
-customElements.define("my-card", MyCard);
+customElements.define("my-button", MyButton);
