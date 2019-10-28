@@ -1,3 +1,3 @@
 import "./button";
 import "./card";
-import "@webcomponents/webcomponentsjs";
+import { customElements } from "@webcomponents/webcomponentsjs";
