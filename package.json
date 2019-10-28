@@ -9,7 +9,7 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && mkdir -p docs && cp -R dist/* docs/",
     "watch": "rollup -c -w"
   },
   "author": "",
