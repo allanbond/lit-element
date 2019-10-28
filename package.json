@@ -9,7 +9,7 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c && mkdir -p docs && cp -R dist/* docs/",
+    "build": "rollup -c && mkdir -p docs && cp -R dist/* docs/  && cp node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js docs/",
     "watch": "rollup -c -w"
   },
   "author": "",

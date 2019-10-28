@@ -3,7 +3,24 @@
   <head>
     <base href="/lit-element" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <script type="module" src="./index.js"></script>
+    <!-- Load polyfills -->
+    <script src="./webcomponents-loader.js" defer></script>
+
+    <!-- Load component when polyfills are definitely ready -->
+    <script type="module">
+      // Take care of cases in which the browser runs this
+      // script before it has finished running
+      // webcomponents-loader.js (e.g. Firefox script execution order)
+      window.WebComponents = window.WebComponents || {
+        waitFor(cb) {
+          addEventListener("WebComponentsReady", cb);
+        }
+      };
+
+      WebComponents.waitFor(async () => {
+        import("./index.js");
+      });
+    </script>
   </head>
   <body>
     <my-card></my-card>
