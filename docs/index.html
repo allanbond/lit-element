@@ -4,7 +4,7 @@
     <base href="/lit-element" />
     <link rel="stylesheet" href="./styles/styles.css" />
     <!-- Load polyfills -->
-    <script src="./webcomponents-loader.js" defer></script>
+    <script src="webcomponents-loader.js" defer></script>
 
     <!-- Load component when polyfills are definitely ready -->
     <script type="module">
@@ -18,7 +18,7 @@
       };
 
       WebComponents.waitFor(async () => {
-        import("./index.js");
+        import("index.js");
       });
     </script>
   </head>
