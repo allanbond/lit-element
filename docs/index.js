@@ -1,37 +1,3 @@
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-}
-
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -2366,29 +2332,28 @@ LitElement['finalized'] = true;
 LitElement.render = render$1;
 
 // import { customElements } from "@webcomponents/webcomponentsjs";
-var MyButton = /** @class */ (function (_super) {
-    __extends(MyButton, _super);
-    function MyButton() {
-        return _super !== null && _super.apply(this, arguments) || this;
+class MyButton extends LitElement {
+    render() {
+        return html `
+      <link rel="stylesheet" href="./styles/styles.css" />
+      <button class="text-white rounded bg-blue-500 p-2 m-2">
+        <slot></slot>
+      </button>
+    `;
     }
-    MyButton.prototype.render = function () {
-        return html(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n      <link rel=\"stylesheet\" href=\"./styles/styles.css\" />\n      <button class=\"text-white rounded bg-blue-500 p-2 m-2\">\n        <slot></slot>\n      </button>\n    "], ["\n      <link rel=\"stylesheet\" href=\"./styles/styles.css\" />\n      <button class=\"text-white rounded bg-blue-500 p-2 m-2\">\n        <slot></slot>\n      </button>\n    "])));
-    };
-    return MyButton;
-}(LitElement));
+}
 customElements.define("my-button", MyButton);
-var templateObject_1;
 
 // import { customElements } from "@webcomponents/webcomponentsjs";
-var MyCard = /** @class */ (function (_super) {
-    __extends(MyCard, _super);
-    function MyCard() {
-        return _super !== null && _super.apply(this, arguments) || this;
+class MyCard extends LitElement {
+    render() {
+        return html `
+      <link rel="stylesheet" href="./styles/styles.css" />
+      <p class="p-8 m-4 border border-gray-400 rounded text-blue-500">
+        My Card
+        <slot></slot>
+      </p>
+    `;
     }
-    MyCard.prototype.render = function () {
-        return html(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n      <link rel=\"stylesheet\" href=\"./styles/styles.css\" />\n      <p class=\"p-8 m-4 border border-gray-400 rounded text-blue-500\">\n        My Card\n        <slot></slot>\n      </p>\n    "], ["\n      <link rel=\"stylesheet\" href=\"./styles/styles.css\" />\n      <p class=\"p-8 m-4 border border-gray-400 rounded text-blue-500\">\n        My Card\n        <slot></slot>\n      </p>\n    "])));
-    };
-    return MyCard;
-}(LitElement));
+}
 customElements.define("my-card", MyCard);
-var templateObject_1$1;
