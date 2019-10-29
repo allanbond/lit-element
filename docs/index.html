@@ -24,6 +24,7 @@
         // Take care of cases in which the browser runs this
         // script before it has finished running 
         // webcomponents-loader.js (e.g. Firefox script execution order)
+        debugger;
         window.WebComponents = window.WebComponents || {
             waitFor(cb) { addEventListener('WebComponentsReady', cb) }
         }
