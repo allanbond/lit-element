@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base href="/lit-element" />
-    <link rel="stylesheet" href="./styles/styles.css" />
+
+<head>
+    <base href="/lit-element/" />
+    <!-- 
+    If you are loading es5 code you will need 
+    custom-elements-es5-loader to make the element work in 
+    es6-capable browsers. 
+        
+    If you are not loading es5 code, you don't need 
+    custom-elements-es5-loader. 
+  -->
+    <!-- 
+  <script src="./path-to/custom-elements-es5-loader.js"></script>
+  -->
+
     <!-- Load polyfills -->
-    <script src="./webcomponents-loader.js" defer></script>
+    <script src="webcomponents-loader.js" defer>
+    </script>
 
     <!-- Load component when polyfills are definitely ready -->
     <script type="module">
-      // Take care of cases in which the browser runs this
-      // script before it has finished running
-      // webcomponents-loader.js (e.g. Firefox script execution order)
-      window.WebComponents = window.WebComponents || {
-        waitFor(cb) {
-          addEventListener("WebComponentsReady", cb);
+        // Take care of cases in which the browser runs this
+        // script before it has finished running 
+        // webcomponents-loader.js (e.g. Firefox script execution order)
+        window.WebComponents = window.WebComponents || {
+            waitFor(cb) { addEventListener('WebComponentsReady', cb) }
         }
-      };
 
-      WebComponents.waitFor(async () => {
-        import("./index.js");
-      });
+        WebComponents.waitFor(async () => {
+            import('./index.js');
+        });
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <my-card></my-card>
     <my-button>Hello</my-button>
-    <my-card><my-button>Hello</my-button></my-card>
-  </body>
+    <my-card>
+        <my-button>Hello</my-button>
+    </my-card>
+</body>
+
 </html>
